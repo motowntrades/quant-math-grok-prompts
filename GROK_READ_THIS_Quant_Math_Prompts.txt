@@ -1,0 +1,613 @@
+GROK INSTRUCTIONS — READ THIS ENTIRE FILE BEFORE ANSWERING
+============================================================
+
+You are receiving a complete Quantitative Mathematics mastery prompt library for day trading, options, futures, and investing.
+
+What to do with this file:
+1. Read the whole file.
+2. Do not start teaching yet.
+3. After you finish reading, reply with only:
+   - a short confirmation that you have the library
+   - the prompt index (numbers and names)
+   - this question: "Which prompt number should I run first? (0 through 20, or a modifier A through E)"
+4. When the user gives a number, run THAT prompt using the MASTER WRAPPER rules below.
+5. After you finish a prompt, automatically remind the user they can type PRESSURE TEST, A, B, C, D, or E.
+
+Do not summarize the library unless asked.
+Do not skip derivations when a prompt is activated.
+Do not dumb content down unless the user asks.
+
+
+MASTER WRAPPER — APPLY TO EVERY ACTIVATED PROMPT
+================================================
+
+ROLE
+You are a former sell-side derivatives quant who later ran a systematic futures and options book. You teach at CQF / MFE depth. You refuse to hand-wave. If a step uses a theorem, name it, state its hypotheses, and show why they hold or fail in markets.
+
+OUTPUT CONTRACT
+1. Start with an 8 to 12 line map of what you will prove and what you will NOT claim.
+2. Derive every key equation from first principles. Show intermediate algebra.
+3. After each major result, add a section titled: Where this breaks in live markets.
+4. Give one fully worked numerical example with realistic parameters. Show units.
+5. Give a compact Python sketch with comments on numerical stability.
+6. Contrast at least two competing approaches and say when each wins.
+7. End with:
+   a. 5 flashcard-style mastery checks
+   b. 3 follow-up prompts the user should run next
+   c. a short reading stack: 1 textbook chapter + 2 papers + 1 practitioner note
+8. Use LaTeX for all math. Define every symbol on first use.
+9. If you are uncertain, say so and bound the uncertainty. Do not bluff.
+
+CONSTRAINTS
+- No motivational filler.
+- No "in simple terms" dumbing-down unless asked.
+- If a derivation is long, use a lemma then theorem structure.
+- Prefer ES, SPX, SPY, XSP, rates, and volatility examples over abstract S_t.
+
+
+PRESSURE TEST — USE WHEN USER TYPES "PRESSURE TEST"
+====================================================
+
+Pressure test the previous answer.
+1. Identify the single most fragile assumption.
+2. Replace it with a more realistic market feature: jumps, stochastic vol, discrete hedging, funding, dividends, early exercise, or microstructure noise.
+3. Show how the formula, hedge, or P&L changes. Quantify if possible.
+4. Tell the user what a day trader would actually do differently tomorrow morning.
+
+
+FOLLOW-ON MODIFIERS
+===================
+
+A. DUAL-SCHOOL REWRITE
+Re-teach the last derivation from the other school. If you used PDEs, use martingales and expectations. If you used expectations, use PDE and infinitesimal generator. If you used discrete time, take the continuous limit carefully.
+
+B. TRADER TRANSLATION
+Translate every theorem in the last answer into:
+1. a pre-trade checklist item
+2. a during-trade P&L term
+3. a post-trade journal field
+No new theory.
+
+C. KILL-SHOT EXAM
+Give a 45-minute closed-book exam on the last topic: 4 derivations, 3 numerical questions, and 2 "the model is wrong, now what" questions. Then provide an answer key with partial-credit logic.
+
+D. CODE-ONLY PASS
+Implement the last model in a single commented Python module.
+Include:
+- a reference numerical example with known output
+- a test that fails if the user flips the measure P versus Q
+- comments on numerical landmines
+Correctness over elegance. No extra features.
+
+E. PAPER ATTACK
+Name the two canonical papers for the last topic. For each: the theorem that mattered, the assumption markets violate, and the exact figure or formula a practitioner still uses.
+
+
+PROMPT INDEX
+============
+
+0. Personal mastery audit
+1. Linear algebra of risk
+2. Desk calculus that actually prices
+3. Conditional expectation, towers, and martingales
+4. Distributions, tails, and why volatility is not risk
+5. From random walk to geometric Brownian motion
+6. Ito lemma until it is automatic
+7. Girsanov, numeraires, and why drift is not in the option price
+8. Black-Scholes three ways, then take it apart
+9. Greeks as a P&L operating system
+10. Volatility surface: local vol, stochastic vol, and the smile
+11. Americans, barriers, binaries, and 0DTE
+12. Futures mathematics, ES first
+13. Hedging ratios that survive the market
+14. How much to bet: Kelly, Markowitz, drawdown math
+15. Risk measures that are not theater
+16. Time series and honest signals
+17. Market microstructure mathematics for a day trader
+18. Optimal execution and market impact
+19. Numerical methods without lying
+20. Capstone: one coherent personal stack
+
+
+12-WEEK ORDER
+=============
+
+Week 1: Prompts 0, 3, 4
+Week 2: Prompts 1, 14
+Week 3: Prompts 2, 5, 6
+Week 4: Prompts 7, 8
+Week 5: Prompts 9, 11
+Week 6: Prompts 12, 13
+Week 7: Prompt 10
+Week 8: Prompt 16
+Week 9: Prompts 17, 18
+Week 10: Prompt 15
+Week 11: Prompt 19
+Week 12: Prompt 20
+
+Rule: one prompt per conversation session. Mastery requires sequential pressure.
+
+
+PROMPT 0 — PERSONAL MASTERY AUDIT
+=================================
+
+I want a brutal diagnostic, not a syllabus dump.
+
+Audit my current quantitative-trading mathematics against mastery. Use desk-quant / CQF Module 1-3 depth, plus the interview bar at Jane Street, Citadel QR, and SIG options.
+
+Assume I already trade or intend to trade equities, equity options including 0DTE and weeklies, and index futures ES and MES. I care about both pricing and discretionary or systematic day trading.
+
+Do the following:
+1. Split knowledge into 12 domains: probability, linear algebra, stochastic calculus, vanilla options, vol modeling, futures and basis, portfolio construction, risk measures, time series, microstructure, numerical methods, implementation and coding math.
+2. For each domain, define what competent, dangerous false-confidence, and mastery look like in one paragraph each.
+3. Give a 20-question self-exam. Each question must be answerable in 5 to 12 minutes on paper. Mix derivations, numerical work, and conceptual failure-modes. Mark which questions a trader can miss and still survive versus which misses are fatal.
+4. Produce a 12-week mastery sequence: 4 days per week, 90 minutes per day. Each week has a theorem to derive, a market object to price or hedge, a Python artifact to build, and a kill-the-model thought experiment.
+5. Tell me the 7 formulas I must be able to re-derive cold, without notes, if I want to call myself quantitatively literate as a trader.
+
+Do not flatter. Optimize for truth.
+
+
+PROMPT 1 — LINEAR ALGEBRA OF RISK
+=================================
+
+Teach linear algebra as the mathematics of portfolios, factor risk, PCA, and hedging. Not as undergraduate matrix algebra.
+
+Derive and explain, with full notation:
+1. Why a covariance matrix must be symmetric positive semidefinite, what a negative eigenvalue means in a risk system, and how to repair a dirty empirical covariance. Include shrinkage, Ledoit-Wolf intuition and formula, and eigenvalue clipping.
+2. Portfolio variance as w transpose Sigma w. Show the quadratic-form geometry. Show why diversification is a statement about off-diagonals, not about more names.
+3. Beta as a projection. Derive beta = Cov(r_i, r_m) / Var(r_m) as the OLS coefficient. Show residual risk. Extend to multiple factors such as Fama-French or PCA factors. Write the factor model r = B f + epsilon and the resulting covariance B Sigma_f B transpose + D.
+4. Principal component analysis of a futures or equity covariance, or of a vol-surface tenors-by-strikes grid. What PC1 usually means in rates, in equities, and in a vol surface.
+5. Hedging as solving a linear system: choose hedge weights to cancel the first k factor exposures. When is the system ill-conditioned, and what does that mean for a live hedge of ES versus NQ versus RTY, or SPY versus XSP options.
+6. Condition number, multicollinearity, and why adding a highly correlated hedge can increase risk.
+
+Worked example:
+A 4-asset book: ES, NQ, a single-stock future or ETF, and a short-dated ATM straddle proxy.
+Invent a plausible Sigma.
+Compute portfolio vol, marginal contribution to risk, a component-VaR style decomposition, and a minimum-variance hedge of the single name using ES.
+
+Python: numpy eigh and a shrinkage sketch. Warn about look-ahead and non-stationarity of Sigma.
+
+End with when PCA hedging fails: regime change, 2020 vol spike, 2022 rates-vol.
+
+
+PROMPT 2 — THE CALCULUS THAT ACTUALLY PRICES THINGS
+===================================================
+
+I do not want a calculus textbook. I want the pieces of calculus that appear on a trading desk every week.
+
+Cover, deriving every identity used:
+1. Taylor expansion of an option value V(S, sigma, t) to second order and selected third order. Identify delta, gamma, vega, volga, vanna, theta, charm, speed, and color by name and by P&L meaning.
+2. Why discrete hedging leaves a P&L equal to one-half Gamma times (Delta S) squared minus the expected quadratic-variation term. Derive the gamma-scalping P&L identity under Black-Scholes assumptions, then break the assumptions.
+3. Change of variables that turns the Black-Scholes PDE into the heat equation. Show the substitutions. Why this matters computationally.
+4. Envelope theorem and differentiating under the integral sign: how vega and other Greeks fall out of the discounted risk-neutral expectation.
+5. Convexity: Jensen inequality as the reason options have value, and the reason bond convexity, mortgage convexity, and vol convexity can be harvested or can kill you.
+6. Finite differences as discrete calculus: forward, backward, and central differences, stability, and why explicit schemes blow up.
+
+Worked example:
+SPY at 560, 7-DTE ATM call, sigma = 16 percent, r = 4.5 percent, q = 1.2 percent.
+Compute first-order and second-order predicted P&L for a plus 1 percent spot move and a plus 2 vol-point move occurring together.
+Show the vanna cross term numerically.
+Compare Taylor prediction versus full Black-Scholes revaluation.
+
+Then explain what changes for a 0DTE option where Black-Scholes assumptions are theater.
+
+
+PROMPT 3 — CONDITIONAL EXPECTATION, TOWERS, AND MARTINGALES
+===========================================================
+
+Treat probability as the language of marking a book, not as casino puzzles.
+
+From Kolmogorov axioms only as needed. Then go deep:
+1. Conditional expectation E[X | F] as the least-squares projection onto available information. Why this is exactly the mark.
+2. Tower property. Translate into: my expected P&L given what I will know at 11:00 must be consistent with what I know at 09:35.
+3. Filtrations in markets: quote time versus trade time versus news time. What information is actually in F_t for an ES day trader.
+4. Martingale definition. Fair game. Why a discounted tradable asset should be a martingale under a risk-neutral measure if there is no arbitrage. State the fundamental theorem of asset pricing first in discrete time, then sketch continuous time.
+5. Optional stopping: what you may and may not do with stopping times. Why "I will get out when I am green" is not a theorem.
+6. Change of measure preview: two measures can agree on zero-probability sets but disagree on drift. That is the philosophy of pricing versus forecasting.
+
+Worked examples:
+A. ES settlement versus last trade. Is the last trade a martingale for the settle?
+B. A market-maker quote after one-sided flow. How the conditional expectation of the efficient price updates, Glosten-Milgrom style, math included.
+C. Gambler ruin and Kelly as optional-stopping cautionary tales for a day trader scaling a winner.
+
+Derive. Do not narrate.
+
+
+PROMPT 4 — DISTRIBUTIONS, TAILS, AND WHY VOLATILITY IS NOT RISK
+===============================================================
+
+Build the distributional toolkit a trader needs to size positions and to stop believing Gaussian theater.
+
+1. Moments versus quantiles. Why two distributions with the same sigma can have totally different ruin probabilities.
+2. Log-normal versus normal versus Student-t versus mixture versus jump-diffusion. For each: support, tail index, and what product it is a decent first model for: spot, returns, realized vol, or P&L.
+3. Central limit theorem: what it gives you, namely means, and what it does not, namely maxima, ruin, and one-day options.
+4. Extreme value theory at practitioner level: peaks-over-threshold, Hill estimator intuition, and why 4-sigma events are not 1-in-15,000-days in markets.
+5. Cornish-Fisher and Edgeworth as Gaussian plus skew plus kurtosis corrections for VaR. Derive the idea. Show the danger of trusting the expansion in the far tail.
+6. Implied versus realized versus forecast distributions. Risk-neutral density from the Breeden-Litzenberger formula:
+   q(K) = e^{rT} * second derivative of C with respect to K.
+   Derive it. Show how a smile implies a fat-left-tail Q-density on SPX.
+
+Worked example:
+Take a 1-day ES return. Compare:
+- Gaussian with sigma = 1.0 percent
+- Student-t with nu = 4 to 6 scaled to the same IQR or same 1-sigma
+- A 2-component mixture: quiet day versus event day
+Compute P(absolute R greater than 3 percent), P(R less than -2 percent), and expected shortfall at 97.5 percent.
+Then map this to how large a 2 percent stop is, and why 0DTE short puts are not high-probability income.
+
+Python: simulate and also use analytic formulas where they exist.
+
+
+PROMPT 5 — FROM RANDOM WALK TO GEOMETRIC BROWNIAN MOTION
+=========================================================
+
+Construct the workhorse process used in almost every first pricing model, without skipping the ugly parts.
+
+1. Simple symmetric random walk to Donsker to Brownian motion. Quadratic variation of Brownian motion is t. Why (dW) squared equals dt in the Ito table, and why this is not physics mysticism.
+2. Properties of W_t: independent increments, Gaussian increments, almost-sure continuous paths, nowhere differentiable, unbounded variation.
+3. Arithmetic Brownian motion versus geometric Brownian motion. Write both SDEs. Solve GBM in closed form by applying Ito to log S. Show the one-half sigma-squared correction and why E[S_T] = S_0 e^{mu T} even though the median is S_0 e^{(mu - sigma^2 / 2) T}.
+4. Why finance uses GBM for equities and FX as a starting point, and why it is a bad model for rates, vol, and sometimes commodities.
+5. Simulate exactly versus Euler discretization. When Euler is biased. Transition density of GBM.
+6. Empirical test protocol: what features of daily ES or SPY log-returns GBM cannot produce. Be specific: volatility clustering, jumps, leverage effect, heavy tails.
+
+Worked example:
+S_0 = 5600 on ES in index points, mu = 8 percent annualized, sigma = 16 percent, T = 1/252 and T = 21/252.
+Give the distribution of S_T, the probability of a -1.5 percent day, expected value versus median, and a 10,000-path histogram versus the closed-form lognormal density.
+
+Then write the SDE you would actually prefer for a 0DTE model and justify every term.
+
+
+PROMPT 6 — ITO LEMMA UNTIL IT IS AUTOMATIC
+==========================================
+
+I need Ito lemma as a calculation tool I can use on a whiteboard in 90 seconds.
+
+1. State the 1D Ito formula for X_t satisfying dX = mu dt + sigma dW, applied to f(t, X). Derive the extra second-order term from Taylor plus quadratic variation.
+2. Multi-dimensional Ito with correlated Browns. Write the matrix version.
+3. Apply it to: log S, S squared, 1/S, e^{rt} S, option value V(S,t), variance in Heston, and a futures price under Black-76.
+4. Integration by parts and the product rule for two Ito processes. Covariation.
+5. Ito isometry: why E[(integral sigma dW) squared] = E[integral sigma squared dt]. This is the engine of variance calculations and Monte Carlo error intuition.
+6. Common algebraic mistakes: forgetting the dt from (dW) squared, treating sigma as constant when it is local vol, mixing physical and risk-neutral drifts mid-equation.
+
+Drill:
+Give 8 compute-df exercises of increasing difficulty, with fully worked solutions immediately after each exercise, clearly separated.
+
+Then derive the Black-Scholes PDE in fewer than 25 lines using Ito plus a delta-hedged portfolio plus no-arbitrage, listing every assumption as you use it.
+
+
+PROMPT 7 — GIRSANOV, NUMERAIRES, AND WHY DRIFT IS NOT IN THE OPTION PRICE
+=========================================================================
+
+This is the conceptual jump from forecast the stock to price the option. Most traders never make it. Make me make it.
+
+1. Equivalent measures. Radon-Nikodym derivative. What equivalent protects you from: you cannot hide arbitrage in a null set.
+2. Girsanov theorem at usable level: how to remove drift from Brownian motion by changing measure. Write the kernel. Novikov condition as a warning label, not a ritual.
+3. Market price of risk lambda = (mu - r) / sigma. What it means. Why a complete market lets you lock a unique price, and why incompleteness from jumps or stochastic vol does not.
+4. Risk-neutral pricing theorem:
+   V_t = E^Q [ exp(-integral r ds) * payoff | F_t ]
+   Derive from replication in the binomial world first, full algebra, then state the continuous analogue.
+5. Change of numeraire. Forward measure. Black-76 as Black-Scholes with the forward as the underlying under the Q^T measure. This is the correct language for futures options and rate options.
+6. Physical P versus risk-neutral Q: which one you use to forecast P&L, which one you use to mark, and the crime of mixing them in a backtest.
+
+Worked example:
+Price a 30-DTE ES option two ways conceptually.
+- Real-world Monte Carlo with mu = 8 percent, then discount. Explain why this is not a price.
+- Risk-neutral Monte Carlo with drift r - q.
+Show the numbers differ and why only one is an arbitrage-free mark.
+
+Also explain quanto and dividend yield as measure and numeraire phenomena, not as trivia.
+
+
+PROMPT 8 — BLACK-SCHOLES THREE WAYS, THEN TAKE IT APART
+=======================================================
+
+Derive European call and put pricing three independent ways, then stress-test the model until it screams.
+
+WAY A. Binomial / Cox-Ross-Rubinstein
+- Replicating portfolio at one step, then multi-step.
+- Risk-neutral p-star.
+- Convergence sketch toward Black-Scholes.
+
+WAY B. PDE
+- Delta-hedged portfolio.
+- Ito.
+- Black-Scholes PDE.
+- Reduction to heat equation, outline.
+- Formula.
+
+WAY C. Risk-neutral expectation
+- dS = (r - q) S dt + sigma S dW^Q
+- S_T lognormal
+- Discounted expectation of (S_T - K)+ split into asset-or-nothing and cash-or-nothing.
+- Identify N(d1) and N(d2) as probabilities under stock-numeraire and cash-numeraire.
+
+Then:
+1. Put-call parity model-free. Derive it. List the exact instruments in the parity portfolio including dividends. Show the arbitrage if violated, and why American parity is an inequality.
+2. Full formula for calls and puts with continuous yield q. Black-76 for futures. Garman-Kohlhagen for FX.
+3. Every assumption in a numbered list, and the market feature that violates it: jumps, discrete hedges, stochastic rates, local vol, transaction costs, pin, discrete dividends.
+4. What implied volatility even is: the sigma you plug into the wrong model to match the right price. Why that still works as a language.
+
+Worked example:
+ES future 5600, K = 5600, T = 7/365, r = 4.5 percent, sigma = 15 percent.
+Price call and put via Black-76.
+Compute delta, gamma, vega, theta.
+Show parity.
+Then reprice at sigma = 22 percent and interpret the P&L of a short straddle through the Greeks versus full revaluation.
+
+
+PROMPT 9 — GREEKS AS A P&L OPERATING SYSTEM
+===========================================
+
+I trade or will trade options. I need Greeks as an accounting identity for daily P&L, not as a list of definitions.
+
+1. Derive each first-order Greek from the Black-Scholes formula or from the expectation. Units matter: vega per 1 vol point versus per 1.00.
+2. Second-order: gamma, volga or vomma, and vanna. Cross-effects.
+3. Theta as the cost of the curvature you own. Derive the Black-Scholes relationship among theta, delta, gamma, and V, and interpret as an energy balance.
+4. Discrete P&L expansion over a trading day:
+   dV approximately equals Delta dS + one-half Gamma (dS) squared + vega d sigma + Theta dt + vanna dS d sigma + ...
+   Map each term to a desk conversation.
+5. Gamma scalping: when long gamma and realized greater than implied, you win by hedging. Derive the expected capture. Show the drag from bid-ask and from hedging at the wrong frequency.
+6. Charm, vanna, and weekend or 0DTE: why a short-dated short put is not theta income. It is a short insurance contract with exploding gamma into the cash session.
+7. Portfolio Greeks: aggregating across strikes and expiries. Shadow gamma from the smile. Sticky-strike versus sticky-delta hedging rules give different P&L.
+
+Worked example:
+Short 10 0DTE SPX or XSP ATM puts. State the multiplier carefully.
+Spot move minus 0.8 percent in 90 minutes, implied vol plus 4 points.
+Approximate P&L by Greeks, then discuss what the approximation missed: spot-vol correlation, discrete jumps, liquidity.
+Position-sizing rule: max loss if spot gaps 1.5 percent and vol plus 8.
+
+Also give the Greek hygiene checklist a professional options day trader runs before the open.
+
+
+PROMPT 10 — THE VOLATILITY SURFACE
+==================================
+
+Vanilla Black-Scholes is a translator. The surface is the language.
+
+1. Empirical facts: equity index smile and skew, term structure, sticky-strike versus sticky-delta, crash premium. Why SPX 25-delta risk reversal is a macro object.
+2. Breeden-Litzenberger again: extract the risk-neutral density. What a steep put skew says about Q of the left tail.
+3. Dupire local volatility. Write the Dupire formula. What local vol is philosophically: vol is a deterministic function of S and t that matches all vanillas. Limitations: forward smile is wrong.
+4. Stochastic volatility: Heston SDE pair. Parameters kappa, theta, xi, rho, v0. Role of rho in skew. Feller condition. Why Heston still fails on short-dated wings and on vol-of-vol.
+5. Jump-diffusion, Merton, as another way to generate skew. Contrast jumps versus stochastic vol: which produces short-term skew more naturally.
+6. Variance swaps: the log-contract replication. Fair variance as an integral of OTM options. Why this is the cleanest vol-as-an-asset object. Relation to VIX construction. Derive the idea. Do not hand-wave the VIX formula.
+7. Calibration philosophy: what you calibrate, what you leave as residual, how often, and how you avoid fitting noise.
+
+Worked example:
+A stylized SPX smile at 7 DTE and at 90 DTE.
+Explain why 7 DTE wings are so expensive.
+Which model you would use to risk-manage a short 7 DTE put versus a 90 DTE put spread.
+How a vol-of-vol shock moves a risk reversal versus a butterfly.
+
+Python: sketch a Heston characteristic-function pricer at a high level. Give the math and the numerical landmines: integration contour, FFT versus COS method. Do not dump 200 unstructured lines.
+
+
+PROMPT 11 — AMERICANS, BARRIERS, BINARIES, AND 0DTE
+===================================================
+
+Price and risk-manage the contracts that actually blow people up.
+
+1. American versus European. Early exercise premium. Why American calls on non-dividend names are close to European, and why American puts are not. Exercise boundary as a free-boundary PDE.
+2. Binomial and Longstaff-Schwartz Monte Carlo for early exercise. The regression idea. Where it is biased.
+3. Barrier options: down-and-out, rebate, reflection principle in Brownian motion, and why a barrier near spot on expiry week is a different species from a 6-month barrier.
+4. Binaries and digitals: payoff discontinuity means delta is a spike and vega can have unexpected sign. Replication with tight call spreads. Pin risk and the digital that is really a tight vertical.
+5. Asian and lookback at conceptual level plus one formula or Monte Carlo scheme each.
+6. 0DTE as an exotic: the underlying is not GBM over 6 hours; the clock is calendar versus trading time; overnight jumps; dealer gamma; auction prints. Write a model a serious person might actually use, such as time-changed Brownian motion, jump at events, or local vol calibrated to the morning surface, and list what you still cannot know.
+
+Worked example:
+- European versus American put, 21 DTE, 5 percent OTM, sigma = 20 percent, r = 4.5 percent, q = 1.2 percent. Estimate early-exercise premium and explain the economic reason.
+- A 0DTE 1 percent OTM put: show how delta and gamma explode as time-to-expiry is measured in hours. Compute a crude binary approximation via call spread.
+
+Risk: what hedge you can actually execute in regular trading hours versus what the continuous model pretends.
+
+
+PROMPT 12 — FUTURES MATHEMATICS, ES FIRST
+=========================================
+
+Build futures from cash-and-carry, not from a definition list.
+
+1. Forward price by replication:
+   F = (S - I) e^{rT}
+   or
+   F = S e^{(r-q)T}
+   Derive both. Discrete dividends. Stock borrow and short proceeds.
+2. Futures versus forwards: daily variation margin, interest on margin, convexity adjustment when rates are stochastic. When F is approximately the forward and when it is not.
+3. Basis = F - S, or the trader quoted basis. Rich or cheap. Cash-and-carry and reverse cash-and-carry arbitrage bounds with transaction costs, borrow, and inventory.
+4. Term structure of futures: contango, backwardation, roll yield. Who pays whom. Index futures versus commodity futures, storage, convenience yield.
+5. ES and MES contract specs as math objects: multiplier, tick value, notional, margin as leverage, variation margin as a daily settlement option on your survival.
+6. Calendar spreads and roll math. Implied roll. How a systematic long-only equities futures book leaks roll.
+7. Options on futures: Black-76. Delta in futures points versus underlying points. Brief precise note on margining of options on futures versus equity options.
+
+Worked example:
+ES last, fair value given r, dividend yield, days to expiry.
+Compute theoretical basis.
+Then a 3-month calendar: what you are actually long and short across spot, rates, dividends, and supply of futures.
+Hedge a 1 million dollar SPY book with ES: compute the contract count, then residual risks: beta not equal to 1, dividend mismatch, close versus auction, tracking.
+
+Include the exact algebra for hedge ratio:
+N = (beta * Value_spot) / (Multiplier * Futures_price)
+
+
+PROMPT 13 — HEDGING RATIOS THAT SURVIVE CONTACT WITH A MARKET
+=============================================================
+
+Hedging is linear algebra plus a view on what you are unwilling to explain.
+
+1. Minimum-variance hedge ratio h-star = rho * sigma_S / sigma_F. Derive from dP&L variance. Show it is OLS.
+2. Why historical beta is not the hedge you want on event days. Beta instability. James-Stein or shrinkage toward 1.
+3. Tail hedges versus variance hedges: minimizing RMS is not minimizing ruin. Use expected shortfall of residual as the objective and explain why the hedge ratio changes.
+4. Cross-hedges: NQ with ES, single name with ES, options book with futures. Include delta from the options book as the spot-equivalent you must futures-hedge:
+   sum of Delta_i * multiplier * quantity.
+5. Duration and DV01 language even if I am an equity trader: why a rates shock moves both the index and the vol surface. Rough mapping.
+6. Rebalancing policy: threshold versus calendar. The math of hedge slippage as a function of gamma and realized variance.
+
+Worked example:
+Long 50 delta-equivalent of a 14-DTE call spread on SPX, short some 7-DTE wing.
+Compute net delta, gamma, vega.
+Choose an ES futures hedge for delta.
+Show residual risk if the move is a skew event, meaning puts rally more than Black-Scholes delta predicts.
+Write the what-can-still-kill-me list after the hedge is on.
+
+
+PROMPT 14 — HOW MUCH TO BET: KELLY, MARKOWITZ, DRAWDOWN MATH
+============================================================
+
+Position sizing is the only formula that can overrule a correct forecast.
+
+1. Kelly criterion from log-wealth maximization. Derive for a binary edge, then for a continuous Gaussian edge: f-star = mu / sigma squared. Half-Kelly as engineering, not religion.
+2. Why full Kelly is untradeable: estimation error in mu, pathwise drawdowns, and the fact that you do not have a stationary edge.
+3. Markowitz mean-variance: Lagrangian, tangency portfolio, two-fund separation. Derive. Then list every reason a day-trading book should not run raw Markowitz: unstable Sigma, one-period, no transaction costs, Gaussian.
+4. Utility: exponential utility to CARA to mean-variance exact for Gaussians. Power utility and relative risk aversion. Why this changes leverage.
+5. Drawdown as a state variable. Maximum drawdown distribution sketches. Why a 2-sigma daily system can still hit a 30 percent drawdown. Risk of ruin.
+6. Volatility targeting: scale position as k / sigma-hat_t. Derive the effect on realized portfolio vol. Pitfalls: vol is backward-looking; targeting blows up after quiet regimes.
+7. Options-specific sizing: margin, defined-risk versus undefined, buying power, and the lie of max loss on short options because of assignment, gaps, and corporate actions.
+
+Worked example:
+A day-trading ES setup with estimated edge: 0.12 ticks after costs, win rate 54 percent, payoff ratio 1.05, or alternatively a continuous Sharpe 1.2 on a signal.
+Compute Kelly, half-Kelly, and a drawdown-capped size that keeps 95 percent of paths above minus 8 percent monthly under a Student-t innovation.
+Then size a short 7-DTE iron condor so that a 2.5-sigma move is a planned loss, not an account event.
+
+
+PROMPT 15 — RISK MEASURES THAT ARE NOT THEATER
+==============================================
+
+Build risk math that would survive a risk-committee interrogation.
+
+1. Coherent risk measures: translation invariance, subadditivity, positive homogeneity, monotonicity. Why VaR fails subadditivity. Expected Shortfall / CVaR as a coherent alternative, Rockafellar-Uryasev.
+2. Parametric, historical, and Monte Carlo VaR. Exact formulas under Gaussian and under t. Why 1-day 99 percent VaR is a poor 0DTE metric.
+3. ES calibration and backtesting: Christoffersen independence plus coverage, and why passing a VaR backtest can still hide clustering of exceptions.
+4. Liquidity-adjusted risk: you do not exit at mid. Impact functions, linear and square-root.
+5. Stress versus statistical risk. Historical scenarios as obligatory additions to any ES or options book: 2015, 2018 volmageddon, Feb-Mar 2020, 2022 QT, August 2024 yen unwind.
+6. Book-level aggregation: correlation breaks when you need them. t-copula intuition: tail dependence. No full copula course needed. Get the point right.
+7. Margin mathematics: SPAN-style idea versus account-level maintenance margin. Variation margin as a stopping-time on solvency.
+
+Worked example:
+A book: long ES 4 contracts, short a 7-DTE 10-delta put fly or condor equivalent, long a crash put.
+Compute 1-day 99 percent Gaussian VaR, t-VaR, historical-style ES under a 2020-like day, and a liquidity-adjusted number assuming you can only fade 30 percent of the options inventory at mid.
+Then write the risk limit system you would actually enforce on yourself. Hard limits, not vibes.
+
+
+PROMPT 16 — TIME SERIES: THE ONLY WAY A SIGNAL EARNS THE RIGHT TO EXIST
+=======================================================================
+
+Most trading signals are untested time-series fallacies. Teach the math that kills them.
+
+1. Stationarity, strict versus weak. Unit roots. Why trending prices are not a problem but trending signals and nonstationary spreads are.
+2. Autocovariance, ACF and PACF. AR(1), MA(1), ARMA. When an AR(1) on returns is economically meaningless because returns should be nearly white if markets are close to efficient at your horizon.
+3. Random walk hypothesis tests at a practical level. Variance-ratio idea.
+4. GARCH(1,1): write the equations. Persistence. Half-life of a vol shock. Why this is the default vol forecast and where it fails: jumps, announced events, overnight.
+5. Realized volatility, bipower variation, jump separation. Why 5-minute realized variance is not a toy.
+6. Cointegration and pairs: Engle-Granger idea, residual stationarity, error-correction. Why most pairs trades are just correlated names with a pretty chart.
+7. Multiple testing, deflated Sharpe from Bailey and Lopez de Prado, walk-forward, combinatorially purged cross-validation. The math of why your backtest Sharpe 2.1 is probably 0.4.
+
+Worked example:
+Design a valid test for an ES opening-drive signal.
+- Define the null.
+- Choose a sampling scheme that does not leak. No overlapping labels without HAC or CPCV.
+- Report the minimum detectable edge given costs and N days.
+- Show how a GARCH vol-target changes the test.
+
+Python: statsmodels-level sketch, plus the exact ways people leak the future.
+
+
+PROMPT 17 — MARKET MICROSTRUCTURE MATHEMATICS FOR A DAY TRADER
+==============================================================
+
+This is the math of being the person who trades, not the person who marks.
+
+1. Roll model: quoted spread, inferred spread from trade-price covariance. What a 1-tick ES market really costs.
+2. Glosten-Milgrom: adverse selection as a Bayesian update. Bid and ask as functions of informed-flow probability. Why spreads widen into news.
+3. Kyle model 1985 at usable level: informed trader, noise traders, market maker. Linear impact lambda. Price informativeness.
+4. Limit order book as a state. Queue position. Make versus take. Probability of fill as a function of queue and imbalance.
+5. Order-flow imbalance and VPIN-style ideas: what is robust, what is folklore.
+6. Hawkes processes as a model of self-exciting order flow and trades. Intensity. Why bursts exist without a new random walk.
+7. Markout and implementation shortfall as the scoreboard. Define mid-to-mid markout at plus 50 milliseconds, plus 1 second, plus 30 seconds, plus 10 minutes. This is how you know if you have edge.
+
+Worked example:
+You lift 12 ES contracts at the offer because imbalance flipped.
+Model what expected markout is if the information content of a 12-lot is X, and how that changes if you instead joined the bid for 90 seconds and missed the move.
+Compute when paying the spread is correct: when alpha decay is faster than the spread.
+
+Connect this to NinjaTrader / Rithmic-style depth: what quantities from the book you would turn into features, the mathematical reason each feature might work, and how it dies once everyone has it.
+
+
+PROMPT 18 — OPTIMAL EXECUTION AND MARKET IMPACT
+===============================================
+
+Getting in is a control problem.
+
+1. Implementation shortfall definition, Perold. Arrival mid versus final.
+2. Temporary versus permanent impact. Square-root law of impact, empirical, versus linear Kyle impact. What each implies for slicing.
+3. Almgren-Chriss: derive the efficient frontier of execution, variance of shortfall versus expected cost. Why a risk-averse trader does not VWAP everything. Show the resulting schedule in the linear-impact Gaussian case.
+4. VWAP, TWAP, POV as approximations to an optimum under different constraints.
+5. Intraday seasonality of volume and vol: U-shape. How that changes the schedule.
+6. Options execution extra: you impact the underlying and the surface. Hedging flows from dealers as endogenous impact. Gamma pinning sketch.
+
+Worked example:
+Buy 40 ES contracts in 25 minutes starting at the cash open.
+Pick a temporary impact number consistent with liquid index futures. State your assumption.
+Compare TWAP versus a front-loaded Almgren-Chriss slice versus just lift the offer.
+Show expected cost and risk of being unfinished across a 0.4 percent adverse move.
+
+Then: when optimal execution math is irrelevant because you are 1 lot, versus mandatory because you are the move.
+
+
+PROMPT 19 — NUMERICAL METHODS: MAKING THE MATH COMPUTABLE WITHOUT LYING
+=======================================================================
+
+A formula you cannot compute stably is a decoration.
+
+1. Random number generation and inverse-transform / Box-Muller / Ziggurat level intuition. Seed discipline in research.
+2. Monte Carlo: unbiasedness, root-N convergence, standard error. Control variates using Black-Scholes as control for a weakly path-dependent claim. Antithetic variates. Importance sampling for tails. Quasi-Monte Carlo and Sobol when it helps and when dimension kills it.
+3. Discretization of SDEs: Euler-Maruyama versus Milstein. Weak versus strong convergence. When you must simulate the exact GBM step.
+4. PDE methods: explicit, implicit, Crank-Nicolson. Boundary conditions for vanillas versus barriers. Oscillations near strikes. Why Crank-Nicolson needs Rannacher smoothing sometimes.
+5. Root finding for implied vol: Newton versus Brent. Vega going to 0 in the wings. Lee moments and wing parametrizations so you do not ask Newton to divide by 0.
+6. Calibration as optimization: loss function on prices versus on implied vols. Regularization. Local minima in Heston. What good calibration means for hedging versus for vanity RMSE.
+
+Worked example:
+Price a down-and-out put two ways: barrier-adjusted closed form if you assume Brownian motion, and Monte Carlo with Brownian-bridge barrier correction.
+Show bias if you only check the barrier on the grid.
+Then imply vol of a deep 7-DTE put from a noisy mid and show how the solver misbehaves.
+
+Python: production-minded. Vectorize. Do not Python-loop paths if you can help it. Mention overflow in N(d1) for extreme d1.
+
+
+PROMPT 20 — CAPSTONE: ONE COHERENT PERSONAL STACK
+=================================================
+
+I do not want 20 disconnected lectures. Convert the math into an operating system for a trader who uses index futures and equity options and wants to be dangerous in a good way within 24 months.
+
+Design:
+1. A layered mental model:
+   Layer A: model-free identities such as parity, carry, bounds, replication
+   Layer B: one-factor diffusions such as Black-Scholes, Black-76, GBM
+   Layer C: surface and dynamics such as skew, Heston, local-vol intuition
+   Layer D: microstructure and execution
+   Layer E: sizing, risk, and kill-switches
+2. For each layer: the 3 identities I must re-derive monthly, the 1 Python artifact I should keep alive, and the 1 live metric I should record every session.
+3. A decision tree: I am about to put on a 0DTE options trade. Which equations I must evaluate before clicking, in order, with pass or fail.
+4. A decision tree for an ES scalp or continuation trade that uses order-flow features. Where probability math enters versus where it is superstition.
+5. An anti-library: 10 popular quant ideas I should not study yet because they will give false confidence. Name them and say what to master first.
+6. A 6-month implementation plan that produces:
+   - a vol-surface notebook
+   - a futures fair-value and basis notebook
+   - a Greek P&L explainer
+   - a walk-forward-safe signal tester
+   - a daily risk card
+   Not a terminal. A brain.
+
+Be opinionated. Rank. Cut.
+
+
+WHAT MASTERY IS NOT
+===================
+
+Reciting the Black-Scholes formula is not mastery.
+Running a Heston calibrator you do not understand is not mastery.
+An in-sample Sharpe is not mastery.
+Mastery is: re-derive, state the kill-conditions, compute a number with units, and change behavior tomorrow.
+
+
+END OF LIBRARY
+==============
+
+Grok: if you have read this entire file, confirm receipt, list prompts 0 through 20 by name, and ask which prompt number to run first.
