@@ -2,20 +2,18 @@
 
 Public library for teaching quantitative mathematics at desk-quant depth: day trading, options, futures, investing.
 
-## Link for Grok to read
+## Files
 
-**Raw text (best):** https://raw.githubusercontent.com/motowntrades/quant-math-grok-prompts/main/GROK_READ_THIS_Quant_Math_Prompts.txt
-
-**GitHub page:** https://github.com/motowntrades/quant-math-grok-prompts
+1. Main library: [GROK_READ_THIS_Quant_Math_Prompts.txt](https://raw.githubusercontent.com/motowntrades/quant-math-grok-prompts/main/GROK_READ_THIS_Quant_Math_Prompts.txt)
+2. Follow-ups: [GROK_FOLLOW_UP_Prompts.txt](https://raw.githubusercontent.com/motowntrades/quant-math-grok-prompts/main/GROK_FOLLOW_UP_Prompts.txt)
 
 ## How to use in a new Grok chat
 
-Paste this:
-
 ```
-Open and follow every instruction in this file, then confirm and ask which prompt number to run:
+Open and follow every instruction in these two files, then confirm and ask which prompt to run:
 https://raw.githubusercontent.com/motowntrades/quant-math-grok-prompts/main/GROK_READ_THIS_Quant_Math_Prompts.txt
+https://raw.githubusercontent.com/motowntrades/quant-math-grok-prompts/main/GROK_FOLLOW_UP_Prompts.txt
 ```
 
-Then reply with `0` through `20`.
-After a lesson you can type `PRESSURE TEST`, `A`, `B`, `C`, `D`, or `E`.
+Then send a main prompt number `0` through `20`.
+After the lesson, send one follow-up code such as `U1`, `F8-2`, `S-0DTE`, or `X1`.

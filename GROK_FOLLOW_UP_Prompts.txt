@@ -1,0 +1,342 @@
+GROK FOLLOW-UP PROMPTS — QUANT MATH MASTERY
+===========================================
+
+Use after a main prompt (0 through 20) in the same chat.
+Keep the MASTER WRAPPER from the main library.
+One follow-up at a time.
+
+How to fire one:
+Type the code, for example: F0-2   or   X3   or   S-0DTE
+
+
+UNIVERSAL FOLLOW-UPS (after any lesson)
+=======================================
+
+U1. WHITEBOARD RECALL
+Close the last lesson. Do not re-explain.
+Give me only:
+1. The 7 symbols I must keep
+2. The 3 equations I must rewrite from memory
+3. One numerical check I can do in 90 seconds on a phone calculator
+Then stop. I will attempt them. After I answer, grade me harshly.
+
+U2. UNITS AND SCALE
+Take every formula from the last lesson.
+Rewrite it with explicit units for ES futures and for SPY or XSP options.
+Show one place a trader loses money by mixing index points, dollars, volatility points, and contract multipliers.
+
+U3. ESTIMATION ERROR
+Assume every input from the last lesson is mis-estimated by 20 percent.
+Show which output blows up, which is robust, and what that means for position size.
+
+U4. OVERNIGHT AND WEEKEND
+Re-apply the last model to:
+- Friday 3:50 p.m. into Monday open
+- CPI / FOMC morning
+- A 0DTE option with 90 minutes left
+What term in the math becomes dominant? What do I not trade?
+
+U5. P VERSUS Q AUDIT
+For the last lesson, make a two-column table:
+Column P: what I use to forecast and size
+Column Q: what I use to mark and hedge
+Name the exact crime if I mix them in a backtest or in a live P&L explanation.
+
+U6. ONE-PAGE CHEAT CARD
+Compress the last lesson into a single page I can screenshot:
+- identities
+- kill-conditions
+- one worked number
+- the next follow-up I should run
+No prose longer than one line per bullet.
+
+
+CROSS-TOPIC SYNTHESIS
+=====================
+
+X1. OPTIONS PLUS FUTURES
+I am long 7-DTE options premium and short ES as a delta hedge.
+Using math from prompts 8, 9, 12, and 13:
+Write the full P&L identity through tomorrow's cash close.
+Include basis, variation margin, gamma, vega, and theta.
+Show a scenario where the hedge is "correct" and I still lose.
+
+X2. TAILS PLUS SIZING
+Connect prompts 4 and 14.
+Take a short 10-delta 0DTE put.
+Compute Kelly-style size under Gaussian, then under Student-t with nu = 5.
+Show how the "high probability winner" becomes a ruin contract under the second distribution.
+
+X3. SMILE PLUS MICROSTRUCTURE
+Connect prompts 10 and 17.
+A dealer is short 0DTE gamma into the close.
+Write the mathematical channel from dealer hedge flow to ES order-book imbalance to markout.
+What is tradable, and what is just a story?
+
+X4. SIGNAL PLUS EXECUTION
+Connect prompts 16 and 18.
+I have an opening-drive signal with claimed Sharpe 1.4 before costs.
+Add implementation shortfall and a 1-tick ES tax.
+What is the minimum hit rate that survives? Show the algebra.
+
+X5. RISK LIMIT THAT ACTUALLY BINDS
+Connect prompts 9, 14, and 15.
+Design a one-account risk card for a trader who does ES scalps and defined-risk option spreads.
+Hard limits only. Each limit must map to a formula from those lessons.
+No vibes.
+
+
+SESSION PROMPTS (use on a trading day)
+======================================
+
+S-OPEN
+It is 9:20 a.m. Eastern. I may trade ES and short-dated options today.
+Using only model-free identities and the last lesson I studied, give:
+1. Three numbers I must write down before 9:30
+2. Two trades that are forbidden today unless a specific equation passes
+3. The kill-switch that closes the platform
+Do not invent a market view.
+
+S-0DTE
+I am considering a 0DTE defined-risk options structure.
+Force this sequence and do not skip a step:
+1. Put-call parity / no-arbitrage sanity
+2. Approximate delta, gamma, vega, theta with units
+3. P&L if spot moves 0.6 percent and vol moves 4 points in 20 minutes
+4. P&L if the cash session gaps 1.2 percent against me
+5. Max size so that case 4 is planned pain, not an account event
+6. Pass or fail. If fail, say which equation failed.
+
+S-ES
+I am considering an ES day trade with order-flow confirmation.
+Force:
+1. What is the hypothesis in probability language, not chart language
+2. Where the edge is supposed to live: prediction, queue, or response to flow
+3. Expected markout windows: 1s, 30s, 10min
+4. When paying the spread is correct
+5. Invalidation that is mathematical, not "it looks weak"
+
+S-CLOSE
+The session is over. I will paste a short trade log next.
+Prepare the journal template that maps each fill to:
+- intended Greek or factor exposure
+- actual P&L terms
+- which assumption died
+- one equation to restudy tonight
+Wait for my log. Do not lecture first.
+
+S-FOMC
+Event day. Rebuild the last pricing or trading model with a jump at announcement time.
+Show what continuous GBM or Black-Scholes is not allowed to claim after 8:25 a.m.
+Give the only structures that still have a coherent hedge.
+
+
+PER-PROMPT FOLLOW-UPS
+=====================
+
+F0-1
+From my audit, pick the single most fatal gap for someone trading ES and 0DTE options.
+Build a 5-day drill: 45 minutes a day. Each day has one derivation, one number, one failure mode.
+
+F0-2
+Rewrite the 7 cold formulas from Prompt 0 as a closed-book sheet with blanks.
+Do not fill them. I will. Then grade.
+
+F1-1
+Take my ES-NQ-RTY-options book idea.
+Build a 3-factor PCA hedge.
+Show the condition number.
+Show a week when PC1 flips meaning and the hedge adds risk.
+
+F1-2
+Ledoit-Wolf versus sample covariance on 60 days of ES and NQ returns.
+What changes in hedge ratio, and when is shrinkage a lie because the regime already changed?
+
+F2-1
+Derive the third-order term I should care about on 0DTE (speed or color or vanna-volga).
+Give a numerical example where second-order Taylor is fine at 21 DTE and garbage at 2 hours to expiry.
+
+F2-2
+Turn the gamma-scalping identity into a spreadsheet recipe:
+inputs, hedge rule, expected capture, cost drag.
+Then break it with a jump.
+
+F3-1
+Write my ES day as a filtration: 9:30 auction, first 15 minutes, news print, last hour.
+What is knowable at each time. What I am not allowed to pretend I knew in a backtest.
+
+F3-2
+Optional stopping on a winner: I trail a stop to breakeven then "let it run."
+Show with a simple martingale why this can have zero edge and still feel skillful.
+
+F4-1
+Extract a risk-neutral density idea from a stylized SPX smile I will describe.
+I will paste four call mids. Use Breeden-Litzenberger in discrete form.
+Then say what the left tail is charging.
+
+F4-2
+Convert a 1-day 99 percent Gaussian VaR into a t-VaR and an expected-shortfall number for a 4-lot ES position.
+Show why the stop I like is not the risk I have.
+
+F5-1
+Simulate exact GBM versus Euler for a 6-hour 0DTE horizon with 1-minute steps.
+How large is the discretization lie relative to a 1-tick ES edge?
+
+F5-2
+Replace GBM with a jump-diffusion for the cash open.
+Write the SDE. What probability of a 0.8 percent open cannot be produced by GBM at 16 percent vol?
+
+F6-1
+Give me 8 new Ito drills, futures and options flavored only.
+After each, hide the answer behind a one-line hint first, then the full solution.
+
+F6-2
+Derive Black-76 dF from Ito on the futures price.
+Then derive the option PDE on F. Contrast with spot Black-Scholes. No shortcuts.
+
+F7-1
+Price the same 21-DTE ATM ES option under P with mu = 8 percent and under Q with drift r - q.
+Show the two Monte Carlo means.
+Write one sentence I should tape above the screen about which number is a mark.
+
+F7-2
+Explain Black-76 as a numeraire change in one page, then give a quanto-style trap that equity-index traders actually hit when they mix ETF options and futures options.
+
+F8-1
+Parity arb sheet for SPY and for ES options.
+List every instrument in the portfolio, including dividends or basis.
+Show the exact inequality for American puts.
+
+F8-2
+Reprice the worked ES example at 3 DTE, 1 DTE, and 2 hours.
+At which horizon do I have to stop quoting Black-76 as if it were truth?
+
+F9-1
+Build a Greek P&L explainer for:
+short 10-delta 0DTE put, long a 21-DTE put as crash hedge, short ES to flatten delta.
+Walk a -0.7 percent / +5 vol point joint move.
+Separate Taylor error from unhedgeable residual.
+
+F9-2
+Sticky-strike versus sticky-delta on that same book.
+Different P&L. Which rule matches how I will actually rehedge in Rithmic during the day?
+
+F10-1
+Dupire versus Heston for a short 7-DTE put.
+I do not need a calibrator. I need: which dynamics I am selling, and which hedge will fail first.
+
+F10-2
+Variance-swap / log-contract idea at trader level.
+What strip of options replicates variance.
+Why a short iron condor is not "short vol" in that sense.
+
+F11-1
+American put early-exercise boundary intuition for a 21-DTE 5 percent OTM put.
+When would a retail trader be the dumb money exercising, and when is the model telling the truth?
+
+F11-2
+Treat a 0DTE 1 percent OTM put as a digital plus a tight vertical.
+Show pin risk and why my delta at 3:50 p.m. is not a number I can trust to 2 decimals.
+
+F12-1
+ES fair-value worksheet:
+inputs r, q or expected dividends, days, fees, borrow.
+Output theoretical basis and a rich/cheap band after costs.
+Then list what can still make cheap stay cheap.
+
+F12-2
+Roll math for a long ES position across quarterly expiry.
+Who pays roll in contango. How that leaks a "buy the index" futures book.
+
+F13-1
+Hedge $400k of high-beta single-name exposure with ES.
+Give h-star, a shrunk beta, and an expected-shortfall hedge that is not minimum-variance.
+Show leftover risks on an earnings day.
+
+F13-2
+Options-book futures hedge:
+I will paste net delta, gamma, vega.
+Tell me the ES lot count, the rehedge threshold as a function of gamma, and what a skew event still does.
+
+F14-1
+Half-Kelly versus vol-target versus "max 8 percent monthly drawdown cap" on the same ES signal.
+Three sizes. Which one I should actually trade if my edge estimate is noisy.
+
+F14-2
+Size a defined-risk 7-DTE condor so that 2.5-sigma is a planned loss.
+Then show the lie if I quote max loss from the structure but ignore early assignment, gap, and margin change.
+
+F15-1
+Write my personal risk card:
+1-day 99 percent t-VaR, ES at 97.5 percent, one historical stress, one liquidity haircut.
+Then the hard platform-close rule.
+
+F15-2
+Why my 0DTE book can pass yesterday's VaR and still be wrecked tomorrow.
+Clustering of exceptions. One plot description and one limit that reacts to clustering, not to the average.
+
+F16-1
+Design the honest test for one ES opening-drive rule I will describe next.
+Null, sampling, costs, multiple-testing tax, minimum detectable edge.
+Wait for the rule. Do not invent one.
+
+F16-2
+GARCH(1,1) on daily ES.
+Write the equations, persistence, half-life.
+When I am not allowed to vol-target off it: FOMC week, post-gap, after a week of 0.2 percent days.
+
+F17-1
+Turn Rithmic depth into 5 features with a mathematical reason each could work.
+For each: the exact way it dies when too many people use it.
+
+F17-2
+Markout scoreboard for my ES style:
++1s, +30s, +10min, +end of day.
+What pattern means I am the informed trader versus the exit liquidity.
+
+F18-1
+Almgren-Chriss for 20 ES over 15 minutes at the cash open.
+Compare to lifting the offer.
+I am not a fund. Tell me when this math is optional.
+
+F18-2
+Options execution: I buy a wing and hedge on ES.
+Write the two-impact problem. Who I am informing.
+
+F19-1
+Implied-vol solver for a 7-DTE 8-delta put with a noisy mid.
+Newton versus Brent. Show the failure when vega is tiny.
+Give the number I should actually trust.
+
+F19-2
+Monte Carlo a barrier-like 0DTE knockout condition with and without Brownian-bridge correction.
+How large is the "I only checked on the 1-minute bar" lie?
+
+F20-1
+Turn Prompt 20's operating system into a daily one-pager I can run for 30 days.
+Morning card, during-session rules, night card.
+No software. Paper is allowed.
+
+F20-2
+Anti-library enforcement.
+I am tempted to study [I will name a shiny topic].
+Tell me the three prerequisites from this library I must pass first, with a 20-minute quiz each.
+
+
+CHAIN RULES
+===========
+
+Recommended chains, not one-off shots:
+
+After 0:   F0-1 then U1
+After 6:   F6-2 then F8-1
+After 8:   F8-2 then F9-1 then S-0DTE
+After 9:   X1 then S-CLOSE
+After 12:  F12-1 then F13-2
+After 14:  X2 then F15-1
+After 16:  X4 then F17-2
+After 17:  X3 then S-ES
+After 20:  F20-1 then S-OPEN for 5 sessions
+
+Do not run two follow-ups in one message.
+If I paste a trade or a market snapshot, use S-CLOSE or S-0DTE rather than inventing a new lecture.
