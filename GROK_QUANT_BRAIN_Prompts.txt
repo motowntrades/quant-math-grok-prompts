@@ -1,0 +1,4 @@
+See companion file in this repo: full Quant Brain prompt pack for research, backtest, data, strategy families, and the self-improving experiment loop.
+
+Primary raw URL:
+https://raw.githubusercontent.com/motowntrades/quant-math-grok-prompts/main/GROK_QUANT_BRAIN_Prompts.txt
